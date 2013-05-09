@@ -1,0 +1,43 @@
+# depslib dependency file v1.0
+1368141123 source:/home/turupawn/Semana5/Dot.cpp
+	"Dot.h"
+
+1368141014 /home/turupawn/Semana5/Dot.h
+	<cmath>
+	"Utility.h"
+	"Particle.h"
+
+1368141016 /home/turupawn/Semana5/Utility.h
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"Timer.h"
+	<string>
+
+1366189330 /home/turupawn/Semana5/Timer.h
+	"SDL/SDL.h"
+
+1368140709 /home/turupawn/Semana5/Particle.h
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"Utility.h"
+	<string>
+	<cstdlib>
+
+1368141154 source:/home/turupawn/Semana5/Particle.cpp
+	"Particle.h"
+
+1366189237 source:/home/turupawn/Semana5/Timer.cpp
+	"Timer.h"
+
+1368140293 source:/home/turupawn/Semana5/Utility.cpp
+	"Utility.h"
+
+1368141229 source:/home/turupawn/Semana5/main.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"Timer.h"
+	"Particle.h"
+	"Dot.h"
+	<string>
+	<cstdlib>
+
