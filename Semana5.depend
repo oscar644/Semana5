@@ -41,3 +41,56 @@
 	<string>
 	<cstdlib>
 
+1368211296 source:c:\users\osar\documents\github\semana5\dot.cpp
+	"Dot.h"
+
+1368209315 c:\users\osar\documents\github\semana5\dot.h
+	<cmath>
+	"Utility.h"
+	"Particle.h"
+
+1368211175 c:\users\osar\documents\github\semana5\utility.h
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"Timer.h"
+	<string>
+
+1368205057 c:\users\osar\documents\github\semana5\timer.h
+	"SDL/SDL.h"
+
+1368205057 c:\users\osar\documents\github\semana5\particle.h
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"Utility.h"
+	<string>
+	<cstdlib>
+
+1368211331 source:c:\users\osar\documents\github\semana5\main.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"Timer.h"
+	"Particle.h"
+	"Dot.h"
+	"Block.h"
+	<string>
+	<cstdlib>
+
+1368205057 source:c:\users\osar\documents\github\semana5\particle.cpp
+	"Particle.h"
+
+1368205057 source:c:\users\osar\documents\github\semana5\timer.cpp
+	"Timer.h"
+
+1368205057 source:c:\users\osar\documents\github\semana5\utility.cpp
+	"Utility.h"
+
+1368460868 source:c:\users\osar\documents\github\semana5\block.cpp
+	"Block.h"
+
+1368211175 c:\users\osar\documents\github\semana5\block.h
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"Utility.h"
+	"Dot.h"
+

@@ -7,6 +7,7 @@ and may not be redistributed without written permission.*/
 #include "Timer.h"
 #include "Particle.h"
 #include "Dot.h"
+#include "Block.h"
 #include <string>
 #include <cstdlib>
 
@@ -72,7 +73,10 @@ int main( int argc, char* args[] )
 
     //The dot that will be used
     Dot myDot(screen);
-
+    SDL_Surface *block_image=load_image("cubo.png");
+    Block block(150,100,100,50,block_image,screen,&myDot);
+    Block block2(400,100,100,50,block_image,screen,&myDot);
+    Block block3(200,300,100,50,block_image,screen,&myDot);
     //While the user hasn't quit
     while( quit == false )
     {
@@ -95,13 +99,17 @@ int main( int argc, char* args[] )
 
         //Move the dot
         myDot.move();
-
+        block.logic();
+        block2.logic();
+        block3.logic();
         //Fill the screen white
         SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ) );
 
         //Show the dot on the screen
         myDot.show();
-
+        block.show();
+        block2.show();
+        block3.show();
         //Update the screen
         if( SDL_Flip( screen ) == -1 )
         {
