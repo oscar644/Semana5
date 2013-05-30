@@ -1,48 +1,46 @@
-#ifndef BLOCK_H
-#define BLOCK_H
+#ifndef PLAYER_H
+#define PLAYER_H
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include "Utility.h"
 #include "Dot.h"
 
 enum{
-        NONE,
-        TOP,
-        BOT,
-        LEFT,
-        RIGHT,
-        CORNERUL,
-        CORNERUR,
-        CORNERDL,
-        CORNERDR,
-        COLLIDING
+        NONE2,
+        TOP2,
+        BOT2,
+        LEFT2,
+        RIGHT2,
+        CORNERUL2,
+        CORNERUR2,
+        CORNERDL2,
+        CORNERDR2,
+        COLLIDING2
         };
 
-class Block
+class Player
 {
-
     public:
-
-        bool isColliding;
+         bool isColliding;
         bool wasColliding;
-        Block();
+        int mover;
         float x, y;
-        int life;
         int width,height;
         SDL_Surface *image;
         SDL_Surface *screen;
         Dot *dot;
-        Block(float x, float y, int width, int height,
+        Player(float x, float y, int width, int height,
               SDL_Surface *image, SDL_Surface *screen,
               Dot *dot);
         int collisionType();
         bool isPointInside(float pointX, float pointY);
         void show();
+        void ismove();
         void logic();
-
-        virtual ~Block();
+        Player();
+        virtual ~Player();
     protected:
     private:
 };
 
-#endif // BLOCK_H
+#endif // PLAYER_H

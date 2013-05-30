@@ -6,7 +6,7 @@
 #include "Particle.h"
 
 #define PI 3.14159265
-#define TOTAL_PARTICLES  20
+#define TOTAL_PARTICLES 20
 
 
 class Dot
@@ -27,12 +27,12 @@ class Dot
     Particle *particles[ TOTAL_PARTICLES ];
 
     public:
-        const int DOT_WIDTH = 20;
-        const int DOT_HEIGHT = 20;
-
         float x, y;
-  float angle, velocity;
 
+        float angle, velocity;
+
+        const float DOT_WIDTH = 20;
+        const float DOT_HEIGHT = 20;
 
     //Initializes
     Dot(SDL_Surface *screen);

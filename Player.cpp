@@ -1,16 +1,11 @@
-#include "block.h"
+#include "Player.h"
 
-Block::Block()
+Player::Player()
 {
     //ctor
 }
 
-Block::~Block()
-{
-    //dtor
-}
-
-Block::Block(float x, float y, int width, int height,SDL_Surface *image,SDL_Surface *screen, Dot *dot){
+Player::Player(float x, float y, int width, int height,SDL_Surface *image,SDL_Surface *screen, Dot *dot){
 this->x = x;
 this->y = y;
 this->width = width;
@@ -20,74 +15,62 @@ this->image = image;
 this->dot = dot;
 this->isColliding = false;
 this->wasColliding = false;
-this->life = 2;
 }
 
-void Block::show(){
-    if (life > 0){
+void Player::show(){
 apply_surface( x, y, image, screen);
-    }
 }
 
-void Block::logic(){
+void Player::logic(){
+
   //  int dotHeight = dot->y + dot->DOT_HEIGHT;
-
-
-
-
-
         int collision = collisionType();
         if(!wasColliding){
         switch(collision){
         case 0:
         break;
 
-        case TOP:
+        case TOP2:
                 dot->angle = -dot->angle;
                 dot->angle += rand()%10 - 20;
-                this->life--;
+
             break;
-        case BOT:
+        case BOT2:
             dot->angle = -dot->angle;
             dot->angle += rand()%10 - 20;
-            this->life--;
+
             break;
 
-        case RIGHT: case LEFT:
+        case RIGHT2: case LEFT2:
             dot->angle = -dot->angle+180;
             dot->angle += rand()%10 - 20;
-            this->life--;
             break;
-         case CORNERUL:
+         case CORNERUL2:
              dot->velocity = abs(dot->velocity);
              dot->angle = 315;
              dot->angle += rand()%5-10;
-             this->life--;
              break;
-        case CORNERUR:
+        case CORNERUR2:
             dot->velocity = abs(dot->velocity);
              dot->angle = 225;
              dot->angle += rand()%5-10;
-             this->life--;
              break;
-        case CORNERDR:
+        case CORNERDR2:
             dot->velocity = abs(dot->velocity);
              dot->angle = 135;
              dot->angle += rand()%5-10;
-             this->life--;
              break;
-        case CORNERDL:
+        case CORNERDL2:
             dot->velocity = abs(dot->velocity);
              dot->angle = 45;
              dot->angle += rand()%5-10;
-             this->life--;
-        }
+             }
 
         }
 
 }
 
-bool Block::isPointInside(float pointX, float pointY){
+bool Player::isPointInside(float pointX, float pointY){
 if(    pointX > this->x
        && pointX < this->x+this->width
        && pointY > this->y
@@ -97,7 +80,7 @@ if(    pointX > this->x
        return false;
 }
 
-int Block::collisionType(){
+int Player::collisionType(){
         // ESQUINA SUPERIOR IZQUIERDA   dot->x                  dot->y
         // ESQUINA SUPERIOR DERECHA     dot->x + DOT_WIDTH      dot->y
         // ESQUINA INFERIOR IZQUIERDA   dot->x                  dot->y + DOT_HEIGHT
@@ -124,7 +107,7 @@ int Block::collisionType(){
                  isPointInside(posXEnd,posY)
                 ){
                     this->isColliding = true;
-                    return TOP;
+                    return TOP2;
         } else if (
                    isPointInside(posX,posYEnd)
                 && isPointInside(posXMid,posYEnd)
@@ -134,7 +117,7 @@ int Block::collisionType(){
 
                 ){
                     this->isColliding = true;
-                    return BOT;
+                    return BOT2;
 
         }else if (
 
@@ -147,7 +130,7 @@ int Block::collisionType(){
 
                    ){
                         this->isColliding = true;
-                        return LEFT;
+                        return LEFT2;
         }else if (
 
                   isPointInside(posXEnd,posY)
@@ -159,15 +142,15 @@ int Block::collisionType(){
 
                    ){
                     this->isColliding = true;
-                    return RIGHT;
+                    return RIGHT2;
         }else if (isPointInside(posX,posY)){
-        return CORNERUL;
+        return CORNERUL2;
         }else if(isPointInside(posX,posYEnd)){
-        return CORNERDL;
+        return CORNERDL2;
         }else if(isPointInside(posXEnd,posY)){
-        return CORNERUR;
+        return CORNERUR2;
         }else if(isPointInside(posXEnd,posYEnd)){
-        return CORNERDR;
+        return CORNERDR2;
         }
 
         }
@@ -176,3 +159,13 @@ int Block::collisionType(){
 }
 
 
+void Player::ismove(){
+        this->x-=100;
+}
+
+
+Player::~Player()
+{
+     SDL_FreeSurface( image );
+    //dtor
+}

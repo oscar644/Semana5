@@ -19,7 +19,7 @@ Dot::Dot(SDL_Surface *screen)
     y = 0;
 
     angle = -45;
-    velocity = 20;
+    velocity = 10;
 
     //Initialize particles
     for( int p = 0; p < TOTAL_PARTICLES; p++ )
